@@ -1,0 +1,49 @@
+{
+  "name": "arena-ai-desktop",
+  "version": "1.0.0",
+  "description": "Desktop app for arena.ai",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --linux AppImage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/how2play23/wwww.git"
+  },
+  "keywords": [
+    "electron",
+    "desktop",
+    "arena"
+  ],
+  "author": "how2play23",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/how2play23/wwww/issues"
+  },
+  "homepage": "https://github.com/how2play23/wwww#readme",
+  "build": {
+    "appId": "com.how2play23.arenaai.desktop",
+    "productName": "Arena AI Desktop",
+    "files": [
+      "main.js",
+      "README.md",
+      "package.json"
+    ],
+    "linux": {
+      "target": [
+        {
+          "target": "AppImage",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "category": "Utility"
+    }
+  },
+  "devDependencies": {
+    "electron": "^42.3.3",
+    "electron-builder": "^26.15.2"
+  }
+}
