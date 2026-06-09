@@ -17,6 +17,7 @@
   "build": {
     "appId": "ai.arena.desktop",
     "productName": "Arena AI",
+    "publish": null,
     "directories": {
       "output": "dist"
     },
