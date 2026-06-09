@@ -16,7 +16,14 @@ except OSError:
 
 draw.text((256, 250), 'A', fill=(110, 231, 183, 255), font=font, anchor='mm')
 
-out = Path(__file__).resolve().parent.parent / 'assets' / 'icon.png'
-out.parent.mkdir(parents=True, exist_ok=True)
-img.save(out)
-print(f'Icon saved to {out}')
+root = Path(__file__).resolve().parent.parent
+assets = root / 'assets'
+assets.mkdir(parents=True, exist_ok=True)
+
+png_path = assets / 'icon.png'
+img.save(png_path)
+print(f'PNG saved to {png_path}')
+
+ico_path = assets / 'icon.ico'
+img.save(ico_path, format='ICO', sizes=[(256, 256), (128, 128), (64, 64), (48, 48), (32, 32), (16, 16)])
+print(f'ICO saved to {ico_path}')

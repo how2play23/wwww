@@ -3,6 +3,7 @@ const path = require('path');
 
 const ARENA_URL = 'https://arena.ai/';
 const isDev = !app.isPackaged;
+const useNativeFrame = process.platform === 'win32' || process.platform === 'darwin';
 
 let mainWindow = null;
 
@@ -15,7 +16,9 @@ function createWindow() {
     title: 'Arena AI',
     backgroundColor: '#0a0a0a',
     show: false,
+    frame: useNativeFrame,
     autoHideMenuBar: true,
+    icon: path.join(__dirname, '..', 'assets', process.platform === 'win32' ? 'icon.ico' : 'icon.png'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,

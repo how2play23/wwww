@@ -36,6 +36,14 @@ body {
   -webkit-app-region: drag;
 }
 
+body.native-frame .titlebar {
+  -webkit-app-region: no-drag;
+}
+
+body.native-frame .titlebar-drag {
+  min-width: auto;
+}
+
 .titlebar-drag {
   display: flex;
   align-items: center;

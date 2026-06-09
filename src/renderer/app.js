@@ -49,7 +49,18 @@ function isArenaDomain(url) {
   }
 }
 
+function setupPlatformUi() {
+  const platform = window.arenaApp.getPlatform();
+  const useNativeFrame = platform === 'win32' || platform === 'darwin';
+
+  if (useNativeFrame) {
+    document.body.classList.add('native-frame');
+    document.querySelector('.window-controls')?.remove();
+  }
+}
+
 async function init() {
+  setupPlatformUi();
   arenaUrl = await window.arenaApp.getArenaUrl();
   webview.src = arenaUrl;
   updateUrlDisplay(arenaUrl);
@@ -62,13 +73,15 @@ btnHome.addEventListener('click', () => {
   webview.loadURL(arenaUrl);
 });
 
-btnMinimize.addEventListener('click', () => window.arenaApp.minimize());
-btnMaximize.addEventListener('click', async () => {
-  await window.arenaApp.maximize();
-  const maximized = await window.arenaApp.isMaximized();
-  btnMaximize.textContent = maximized ? '❐' : '□';
-});
-btnClose.addEventListener('click', () => window.arenaApp.close());
+if (btnMinimize) btnMinimize.addEventListener('click', () => window.arenaApp.minimize());
+if (btnMaximize) {
+  btnMaximize.addEventListener('click', async () => {
+    await window.arenaApp.maximize();
+    const maximized = await window.arenaApp.isMaximized();
+    btnMaximize.textContent = maximized ? '❐' : '□';
+  });
+}
+if (btnClose) btnClose.addEventListener('click', () => window.arenaApp.close());
 
 webview.addEventListener('did-start-loading', () => setLoading(true));
 webview.addEventListener('did-stop-loading', () => {

@@ -11,6 +11,7 @@
   "scripts": {
     "start": "electron .",
     "build": "electron-builder --linux",
+    "build:win": "electron-builder --win",
     "build:all": "electron-builder --linux --win --mac"
   },
   "build": {
@@ -32,8 +33,12 @@
       "icon": "assets/icon.png"
     },
     "win": {
-      "target": "nsis",
-      "icon": "assets/icon.png"
+      "target": [
+        "nsis",
+        "portable"
+      ],
+      "icon": "assets/icon.ico",
+      "signAndEditExecutable": false
     },
     "mac": {
       "target": "dmg",
@@ -41,7 +46,13 @@
     },
     "nsis": {
       "oneClick": false,
-      "allowToChangeInstallationDirectory": true
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Arena AI",
+      "installerLanguages": ["ru", "en"],
+      "language": "1049"
     }
   },
   "devDependencies": {

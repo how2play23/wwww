@@ -1,6 +1,7 @@
 const { contextBridge, ipcRenderer } = require('electron');
 
 contextBridge.exposeInMainWorld('arenaApp', {
+  getPlatform: () => process.platform,
   getArenaUrl: () => ipcRenderer.invoke('app:getArenaUrl'),
   minimize: () => ipcRenderer.invoke('window:minimize'),
   maximize: () => ipcRenderer.invoke('window:maximize'),
