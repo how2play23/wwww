@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self'; script-src 'self'; connect-src https://arena.ai https://*.arena.ai;"
+    >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arena AI - нет соединения</title>
+    <link rel="stylesheet" href="./offline.css">
+  </head>
+  <body>
+    <main class="card">
+      <div class="badge">Arena AI</div>
+      <h1>Не удалось открыть сайт</h1>
+      <p>
+        Проверьте подключение к интернету или попробуйте загрузить Arena AI еще раз.
+      </p>
+      <p class="details" id="details"></p>
+      <div class="actions">
+        <button id="retry" type="button">Повторить</button>
+        <a id="browserLink" href="https://arena.ai/" rel="noreferrer">Открыть в браузере</a>
+      </div>
+    </main>
+    <script src="./offline.js"></script>
+  </body>
+</html>

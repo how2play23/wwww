@@ -1,0 +1,59 @@
+{
+  "name": "arena-ai-desktop",
+  "version": "1.0.0",
+  "description": "Desktop wrapper for Arena AI.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "create-icon": "node scripts/create-icon.js",
+    "test": "node --check src/main.js && node --check scripts/create-icon.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:linux": "electron-builder --linux AppImage deb"
+  },
+  "keywords": [
+    "arena-ai",
+    "desktop",
+    "electron"
+  ],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/how2play23/wwww.git"
+  },
+  "bugs": {
+    "url": "https://github.com/how2play23/wwww/issues"
+  },
+  "homepage": "https://github.com/how2play23/wwww#readme",
+  "build": {
+    "appId": "ai.arena.desktop",
+    "productName": "Arena AI",
+    "asar": true,
+    "artifactName": "${productName}-${version}-${arch}.${ext}",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json"
+    ],
+    "linux": {
+      "category": "Network",
+      "icon": "assets/icon.png",
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "deb": {
+      "synopsis": "Arena AI desktop app",
+      "description": "A desktop application that opens https://arena.ai/ in a focused native window."
+    }
+  },
+  "devDependencies": {
+    "electron": "^42.3.3",
+    "electron-builder": "^26.15.2"
+  }
+}
