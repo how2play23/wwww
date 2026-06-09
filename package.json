@@ -2,6 +2,7 @@
   "name": "arena-ai-desktop",
   "version": "1.0.0",
   "description": "Desktop wrapper for Arena AI.",
+  "desktopName": "arena-ai-desktop",
   "main": "src/main.js",
   "scripts": {
     "start": "electron .",
@@ -16,7 +17,10 @@
     "desktop",
     "electron"
   ],
-  "author": "",
+  "author": {
+    "name": "how2play23",
+    "email": "noreply@github.com"
+  },
   "license": "ISC",
   "repository": {
     "type": "git",
@@ -42,6 +46,8 @@
     "linux": {
       "category": "Network",
       "icon": "assets/icon.png",
+      "maintainer": "how2play23 <noreply@github.com>",
+      "syncDesktopName": true,
       "target": [
         "AppImage",
         "deb"
