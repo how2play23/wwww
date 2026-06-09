@@ -16,7 +16,20 @@ npm install
 npm start
 ```
 
-## Сборка установочного тестового приложения (Linux)
+## Сборка установочного тестового приложения
+
+### Windows (`.exe` установщик)
+
+```bash
+npm install
+npm run dist:win
+```
+
+После сборки файл для установки появится в `dist/`:
+
+- `Arena AI Desktop Setup 1.0.0.exe`
+
+### Linux (`.AppImage`)
 
 ```bash
 npm run dist
