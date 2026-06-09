@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self';" />
+  <title>Arena AI</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="titlebar" id="titlebar">
+    <div class="titlebar-drag">
+      <div class="app-brand">
+        <img src="../../assets/icon.png" alt="" class="app-icon" />
+        <span class="app-name">Arena AI</span>
+      </div>
+    </div>
+
+    <nav class="toolbar" aria-label="Навигация">
+      <button class="toolbar-btn" id="btn-back" title="Назад (Alt+←)" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="toolbar-btn" id="btn-forward" title="Вперёд (Alt+→)" disabled>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="toolbar-btn" id="btn-refresh" title="Обновить (Ctrl+R)">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12a9 9 0 1 1-2.64-6.36" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M21 3v6h-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="toolbar-btn" id="btn-home" title="Главная">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1v-9.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+      </button>
+
+      <div class="url-bar" id="url-bar" title="Текущий адрес">
+        <span class="url-lock" aria-hidden="true">🔒</span>
+        <span class="url-text" id="url-text">arena.ai</span>
+      </div>
+    </nav>
+
+    <div class="window-controls">
+      <button class="win-btn" id="btn-minimize" title="Свернуть">─</button>
+      <button class="win-btn" id="btn-maximize" title="Развернуть">□</button>
+      <button class="win-btn win-btn-close" id="btn-close" title="Закрыть">✕</button>
+    </div>
+  </header>
+
+  <div class="progress-bar" id="progress-bar"></div>
+
+  <main class="content">
+    <webview
+      id="webview"
+      partition="persist:arena"
+      allowpopups
+      webpreferences="contextIsolation=yes, javascript=yes"
+    ></webview>
+
+    <div class="loading-overlay" id="loading-overlay">
+      <div class="spinner"></div>
+      <p>Загрузка Arena AI…</p>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

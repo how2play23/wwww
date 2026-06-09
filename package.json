@@ -1,0 +1,51 @@
+{
+  "name": "arena-ai-desktop",
+  "version": "1.0.0",
+  "description": "Удобное десктоп-приложение для Arena AI",
+  "main": "src/main.js",
+  "author": {
+    "name": "Arena AI Desktop",
+    "email": "desktop@arena.ai"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --linux",
+    "build:all": "electron-builder --linux --win --mac"
+  },
+  "build": {
+    "appId": "ai.arena.desktop",
+    "productName": "Arena AI",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*"
+    ],
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "Network",
+      "icon": "assets/icon.png"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.png"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^35.0.0",
+    "electron-builder": "^25.1.8"
+  }
+}
